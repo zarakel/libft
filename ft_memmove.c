@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:21:24 by jbuan             #+#    #+#             */
-/*   Updated: 2021/03/24 12:41:17 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/03/25 09:06:50 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void 	*ft_memmove(void *dst, const void *src, size_t len)
 
 	d = dst;
 	i = 0;
-	while (i < n)
+	while (i < len)
 	{
 		*tmp = *(char *)src;
 		*d = *tmp;
