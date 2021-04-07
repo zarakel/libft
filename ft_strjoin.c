@@ -1,37 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 13:29:08 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/07 12:54:06 by jbuan            ###   ########.fr       */
+/*   Created: 2021/03/30 16:11:41 by jbuan             #+#    #+#             */
+/*   Updated: 2021/04/01 12:28:44 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include "libft.h"
-#include <stdlib.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+int	strl(const char *str)
 {
-	char	*s;
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*c;
+	size_t	lena;
+	size_t	lenb;
 	size_t	i;
 	size_t	j;
 
-	s = (char *)src;
+	lena = strl(s1);
+	lenb = strl(s2);
+	c = (char *)malloc(sizeof(char) * (lena + (lenb + 1)));
+	if (!c)
+		return (NULL);
 	i = 0;
-	j = 0;
-	while (src[j])
-		j++;
-	while (s[i] && i < (dstsize - 1))
+	j = 0 - lena;
+	while (i < lena + (lenb + 1))
 	{
-		dst[i] = s[i];
+		c[i] = s1[i];
+		if (i >= lena)
+			c[i] = s2[j];
+		j++;
 		i++;
 	}
-	if (dstsize > 0)
-		dst[i] = '\0';
-	return (j);
+	c[i] = '\0';
+	return (c);
 }

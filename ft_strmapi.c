@@ -1,37 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 13:29:08 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/07 12:54:06 by jbuan            ###   ########.fr       */
+/*   Created: 2021/04/07 10:02:31 by jbuan             #+#    #+#             */
+/*   Updated: 2021/04/07 13:44:35 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+char	*f(unsigned int i, char a[i])
 {
-	char	*s;
-	size_t	i;
-	size_t	j;
+	a[i] += 32;
+	return (a);
+}
 
-	s = (char *)src;
-	i = 0;
-	j = 0;
-	while (src[j])
-		j++;
-	while (s[i] && i < (dstsize - 1))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int i, char (&)a[i]))
+{
+	char			*a;
+	int 			i;
+
+	i = ft_strlen(s);
+	a = (char *)malloc(sizeof(char) * i);
+	a = (char *)s;
+	if (!a)
+		return (NULL);
+	while (a[i])
 	{
-		dst[i] = s[i];
+		a[i] = f(i, a[i]);
 		i++;
 	}
-	if (dstsize > 0)
-		dst[i] = '\0';
-	return (j);
+	return (a);
+}
+
+int	main()
+{
+	char *s;
+	unsigned int i;
+
+	i = 0;
+	s = "atchoum";
+	printf("%s\n", ft_strmapi(s, char (*f)(i, &s[i])));
 }

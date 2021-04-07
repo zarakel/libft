@@ -6,17 +6,19 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 11:41:23 by jbuan             #+#    #+#             */
-/*   Updated: 2021/03/23 12:19:27 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/04/01 12:26:42 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
+#include "libft.h"
+#include <stdlib.h>
 
-void *ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char *d;
-	unsigned int i;
+	char			*d;
+	unsigned int	i;
 
 	d = dst;
 	i = 0;
@@ -28,12 +30,4 @@ void *ft_memcpy(void *dst, const void *src, size_t n)
 		i++;
 	}
 	return (dst);
-}
-
-int	main()
-{
-	char dst[] = "Zombie";
-	char src[] = "Zeubi";
-	ft_memcpy(dst, src, 2);
-	printf("%s", dst);
 }
