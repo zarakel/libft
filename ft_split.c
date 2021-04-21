@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 15:09:06 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/06 13:54:51 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/04/20 18:42:11 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,78 +14,59 @@
 #include <stdlib.h>
 #include "libft.h"
 
-struct s_init
+static int	non(const char *s, char c)
 {
-	int		i;
-	int		j;
-	int		k;
-	int		l;
-};
-
-void	*ft_malloc(char const *s, char c)
-{
-	char	*a;
-	int		i;
-
-	i = 0;
-	while (s[i] != c)
-		i++;
-	a = (char *)malloc(sizeof(char) * (i + 1));
-	if (!a)
-		return (NULL);
-	return (a);
-}
-
-void	*ft_malloc1(char const *s, char c)
-{
-	char	*b;
 	int		i;
 	int		j;
 
 	i = 0;
 	j = 0;
-	while (s[i] != c)
-		i++;
-	j = ft_strlen(s);
-	b = (char *)malloc(sizeof(char) * (j - (i + 1)));
-	if (!b)
-		return (NULL);
-	return (b);
-}
-
-char	*rouli1(char *a, const char *s, int i, int l)
-{
-	while (i < l + 1)
+	while (s[i])
 	{
-		a[i] = s[i];
+		if (i == 0 && s[i] != c)
+			j++;
+		else if (s[i] != c && (i > 0 && s[i - 1] == c))
+			j++;
 		i++;
 	}
-	a[i] = '\0';
-	return (a);
+	return (j);
+}
+
+static int	futur(const char *s, char c)
+{
+	int		i;
+
+	i = 0;
+	while (s[i] != c && s[i])
+		i++;
+	return (i);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char			**d;
-	struct s_init	x;
+	char	**a;
+	int		i;
+	int		j;
+	int		k;
 
-	d = (char **)malloc(sizeof(char *) * 2);
-	if (!d)
-		return (NULL);
-	d[0] = ft_malloc(s, c);
-	d[1] = ft_malloc1(s, c);
-	x.i = 0;
-	x.j = 0;
-	x.l = 0;
-	x.k = ft_strlen(s);
-	while (s[x.l] != c)
-		x.l++;
-	d[0] = rouli1(d[0], s, x.i, x.l);
-	while (x.l < x.k + 1)
+	if (!s)
+		return (0);
+	j = non((char *)s, c);
+	a = malloc(sizeof(char *) * (j + 1));
+	if (!a)
+		return (0);
+	i = 0;
+	while (i < j)
 	{
-		d[1][x.j] = s[x.l + 1];
-		x.j++;
-		x.l++;
+		k = 0;
+		while (*s != '\0' && *s == c)
+			s++;
+		k = futur((char *)s, c);
+		a[i] = ft_substr(s, 0, k);
+		while (*s != '\0' && *s != c)
+			s++;
+		i++;
 	}
-	return (d);
+	a[i] = NULL;
+	return (a);
 }

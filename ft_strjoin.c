@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 16:11:41 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/01 12:28:44 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/04/16 14:52:18 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "libft.h"
 
-int	strl(const char *str)
+static int	strl(const char *str)
 {
 	int	i;
 

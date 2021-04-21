@@ -6,70 +6,63 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 13:55:16 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/06 19:16:39 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/04/20 19:01:00 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-struct s_init
+static int	nbl(unsigned int n)
 {
-	char			*a;
-	int				i;
-	unsigned int	nb;
-};
+	unsigned int	i;
 
-int	l(int n)
-{
-	unsigned int	nb;
-	int				i;
-
-	nb = n;
 	i = 0;
-	if (nb < 0)
-		i++;
-	while (nb > 0)
+	while (n >= 10)
 	{
-		nb = nb / 10;
+		n = n / 10;
 		i++;
 	}
-	return (i);
+	return (i + 1);
 }
 
-void	*ft_malloc(int i)
+static char	*trad(int n, unsigned int nb, unsigned int len, char *dst)
 {
-	char	*a;
+	int	i;
 
-	a = (char *)malloc(sizeof(char) * i);
-	if (!a)
-		return (NULL);
-	return (a);
+	if (n < 0)
+		dst[0] = '-';
+	i = len - 1;
+	while (nb >= 10)
+	{
+		dst[i] = nb % 10 + '0';
+		nb = nb / 10;
+		i--;
+	}
+	dst[i] = nb % 10 + '0';
+	dst[len] = '\0';
+	return (dst);
 }
 
 char	*ft_itoa(int n)
 {
-	struct s_init	x;
+	char			*dst;
+	unsigned int	len;
+	unsigned int	nb;
 
-	x.i = l(n);
-	x.nb = n;
-	x.a = malloc(x.i);
-	x.a[x.i--] = '\0';
-	if (x.nb < 0)
+	if (n >= 0)
 	{
-		x.a[x.i] = '-';
-		x.i++;
+		nb = n;
+		len = nbl(nb);
 	}
-	else if (x.nb == 0)
+	else if (n < 0)
 	{
-		x.a[0] = '0';
-		return (x.a);
+		nb = -n;
+		len = nbl(nb);
+		len++;
 	}
-	while (x.nb > 0)
-	{
-		x.a[x.i] = '0' + (x.nb % 10);
-		x.nb = x.nb / 10;
-		x.i--;
-	}
-	return (x.a);
+	dst = (char *)malloc(sizeof(char) * len + 1);
+	if (!dst)
+		return (NULL);
+	return (trad(n, nb, len, dst));
 }

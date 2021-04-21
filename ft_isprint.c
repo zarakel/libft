@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 16:32:10 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/01 11:02:56 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/04/13 17:50:55 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-int	ft_isalpha(int c)
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)
 		return (1);

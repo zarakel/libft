@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 10:02:31 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/07 13:44:35 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/04/13 18:47:28 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,29 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char	*f(unsigned int i, char a[i])
+/*static char	chose(unsigned int i, char c)
 {
-	a[i] += 32;
-	return (a);
-}
+	if (i >= 0)
+		c += 1;
+	return (c);
+}*/
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int i, char (&)a[i]))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*a;
-	int 			i;
+	char	*a;
+	int		i;
+	int		j;			
 
 	i = ft_strlen(s);
-	a = (char *)malloc(sizeof(char) * i);
-	a = (char *)s;
+	a = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (!a)
 		return (NULL);
-	while (a[i])
+	j = 0;
+	while (s[j])
 	{
-		a[i] = f(i, a[i]);
-		i++;
+		a[j] = f(j, s[j]);
+		j++;
 	}
+	a[j] = '\0';
 	return (a);
-}
-
-int	main()
-{
-	char *s;
-	unsigned int i;
-
-	i = 0;
-	s = "atchoum";
-	printf("%s\n", ft_strmapi(s, char (*f)(i, &s[i])));
 }

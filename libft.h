@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 11:23:04 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/06 19:20:06 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/04/21 10:21:22 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include <stdlib.h>
 
+typedef struct s_list
+{
+	void			*content;
+	struct slist	*next;
+}				t_list;
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strrchr(const char *s, int c);
@@ -45,5 +50,10 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f) (unsigned int, char));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif
