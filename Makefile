@@ -6,7 +6,7 @@
 #    By: jbuan <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/13 14:52:41 by jbuan             #+#    #+#              #
-#    Updated: 2021/04/19 12:58:39 by jbuan            ###   ########.fr        #
+#    Updated: 2021/04/23 09:16:10 by jbuan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c \
 ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_strjoin.c \
 ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
 ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
+BNAME = bonus.a
+BOBJ = $(BSRC:.c=.o)
+BSRC = ft_lstnew.c ft_lstadd_front.c
 
 all: $(NAME)
 $(NAME): $(OBJ)
@@ -31,5 +34,13 @@ clean:
 	rm -f *.o
 fclean: clean
 	rm -f $(NAME)
-
 re: fclean all
+bonus: $(BNAME)
+$(BNAME): $(BOBJ)
+	ar -rcs $(BNAME) $(BOBJ)
+$(BOBJ): $(BSRC)
+	$(CC) -c $(BSRC)
+bfclean: clean
+	rm -f $(BNAME)
+reb: bfclean bonus
+
