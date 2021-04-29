@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 13:55:16 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/28 19:58:09 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/04/29 09:01:26 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,43 @@ static int	nbl(unsigned int n)
 	return (i + 1);
 }
 
-char	*ft_itoa(int n)
+static char	*trad(int n, unsigned int nb, unsigned int len, char *dst)
+{
+	int	i;
+
+	if (n < 0)
+		dst[0] = '-';
+	i = len - 1;
+	while (nb >= 10)
+	{
+		dst[i] = nb % 10 + '0';
+		nb = nb / 10;
+		i--;
+	}
+	dst[i] = nb % 10 + '0';
+	dst[len] = '\0';
+	return (dst);
+}
+
+char *ft_itoa(int n)
 {
 	char			*dst;
 	unsigned int	len;
 	unsigned int	nb;
 
-	len = nbl(n);
-	nb = n;
+	if (n >= 0)
+	{
+		nb = n;
+		len = nbl(nb);
+	}
+	if (n < 0)
+	{
+		nb = -n;
+		len = nbl(nb);
+		len++;
+	}
 	dst = (char *)malloc(sizeof(char) * len + 1);
 	if (!dst)
-		return NULL;
-	if (nb < 0)
-	{
-		str[0] = '-';
-		nb = -nb;
-	}
-	if (nb == 0)
-		str[0] = 0;
-	while (nb)
-	{
-		dst[len] = nb % 10 + '0'
-		len--;
-		nb = nb / 10;
-	}
-	dst[len--] = '\0';
-	return (dst);
+		return (NULL);
+	return (trad(n, nb, len, dst));
 }

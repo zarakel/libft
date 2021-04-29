@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 12:10:50 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/29 09:18:14 by jbuan            ###   ########.fr       */
+/*   Created: 2021/04/29 14:42:35 by jbuan             #+#    #+#             */
+/*   Updated: 2021/04/29 16:08:54 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "bonus.h"
 #include "libft.h"
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putstr_fd(char *s, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f) (void *), void (*del) (void *))
 {
-	int	i;
+	t_list	*new1;
+	t_list 	*new2;
 
-	i = 0;
-	if (!s)
-		return;
-	while (s[i])
+	new1 = NULL;
+	if (lst)
 	{
-		ft_putchar_fd(s[i], fd);
-		i++;
+		while (lst)
+		{
+			new2 = ft_lstnew(f(lst->content));
+			if (!new2)
+			{
+				ft_lstclear(&new1, del);
+				return (NULL);
+			}
+			ft_lstadd_back(&new1, new2);
+			lst = lst->next;
+		}
+		return (new1);
 	}
+	else
+		return (NULL);
 }
