@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 08:55:54 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/26 14:34:27 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/04/27 08:11:16 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	new->next = *alst;
+	*alst = new;
 	return ;
 }

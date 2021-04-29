@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 16:11:41 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/16 14:52:18 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/04/28 15:23:23 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	size_t	j;
 
+	if (!s1 || !s2)
+		return (NULL);
 	lena = strl(s1);
 	lenb = strl(s2);
 	c = (char *)malloc(sizeof(char) * (lena + (lenb + 1)));
