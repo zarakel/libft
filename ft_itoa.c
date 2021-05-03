@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 13:55:16 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/29 09:01:26 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/02 14:44:28 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static char	*trad(int n, unsigned int nb, unsigned int len, char *dst)
 	return (dst);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char			*dst;
 	unsigned int	len;

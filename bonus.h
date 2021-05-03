@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 09:01:19 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/29 14:56:24 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/02 14:42:46 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 
-typedef struct	s_list t_list;
+typedef struct s_list	t_list;
 
 struct	s_list
 {

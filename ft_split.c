@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 15:09:06 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/20 18:42:11 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/03 14:18:12 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static int	non(const char *s, char c)
+static int	compte(const char *s, char c)
 {
 	int		i;
 	int		j;
@@ -51,7 +51,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (0);
-	j = non((char *)s, c);
+	j = compte((char *)s, c);
 	a = malloc(sizeof(char *) * (j + 1));
 	if (!a)
 		return (0);

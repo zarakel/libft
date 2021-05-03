@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 08:34:23 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/28 19:03:10 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/02 14:53:27 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ static int	egal(const char *set, char c)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*a;
-	size_t		i;
-	size_t		j;
-	size_t		k;
-
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
 	if (!s1 || !set)
 		return (0);

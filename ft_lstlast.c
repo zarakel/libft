@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 16:22:31 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/27 09:18:52 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/02 14:47:49 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ t_list	*ft_lstlast(t_list *lst)
 		return (NULL);
 	while (lst->next != NULL)
 		lst = lst->next;
-	return(lst);
+	return (lst);
 }

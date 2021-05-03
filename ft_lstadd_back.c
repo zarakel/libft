@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:40:51 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/29 11:46:34 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/02 14:45:15 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 	{
 		if (*alst == NULL)
 			*alst = new;
-		else 
+		else
 		{
 			last = ft_lstlast(*alst);
 			last->next = new;

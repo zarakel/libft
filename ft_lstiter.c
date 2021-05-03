@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 14:17:56 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/29 14:41:05 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/02 14:47:17 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f) (void *))
 {
-	t_list *last;
+	t_list	*last;
 
 	last = lst;
 	while (lst)
@@ -25,5 +25,5 @@ void	ft_lstiter(t_list *lst, void (*f) (void *))
 		f (lst->content);
 		lst = last;
 	}
-	return;
+	return ;
 }

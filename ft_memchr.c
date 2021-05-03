@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 13:53:51 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/28 19:43:00 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/02 14:49:40 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	char	*str;
-	size_t		i;
+	size_t	i;
 
 	i = 0;
 	str = (char *)s;

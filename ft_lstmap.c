@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 14:42:35 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/29 16:08:54 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/02 14:48:40 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f) (void *), void (*del) (void *))
 {
 	t_list	*new1;
-	t_list 	*new2;
+	t_list	*new2;
 
 	new1 = NULL;
 	if (lst)

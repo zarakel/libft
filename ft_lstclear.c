@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 09:38:16 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/29 14:17:41 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/02 14:46:14 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	ft_lstclear(t_list **lst, void (*del) (void *))
 {
-	t_list *last;
+	t_list	*last;
 
 	last = *lst;
 	while (last)
@@ -26,5 +26,5 @@ void	ft_lstclear(t_list **lst, void (*del) (void *))
 		free (*lst);
 		(*lst) = last;
 	}
-	return;
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 12:10:50 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/29 09:18:14 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/02 14:50:48 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putstr_fd(char *s, int fd)
 
 	i = 0;
 	if (!s)
-		return;
+		return ;
 	while (s[i])
 	{
 		ft_putchar_fd(s[i], fd);
