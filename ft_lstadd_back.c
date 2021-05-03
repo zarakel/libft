@@ -6,13 +6,12 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:40:51 by jbuan             #+#    #+#             */
-/*   Updated: 2021/05/02 14:45:15 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/03 18:45:48 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
-#include "bonus.h"
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {

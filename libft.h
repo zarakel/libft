@@ -6,7 +6,7 @@
 /*   By: jbuan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 11:23:04 by jbuan             #+#    #+#             */
-/*   Updated: 2021/04/23 12:52:49 by jbuan            ###   ########.fr       */
+/*   Updated: 2021/05/03 18:47:51 by jbuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,22 @@
 
 # include <stdlib.h>
 
+typedef struct s_list	t_list;
+
+struct	s_list
+{
+	void	*content;
+	t_list	*next;
+};
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **alst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **alst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del) (void *));
+void	ft_lstclear(t_list **lst, void (*del) (void *));
+void	ft_lstiter(t_list *lst, void (*f) (void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f) (void *), void (*del) (void *));
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strrchr(const char *s, int c);
